@@ -138,7 +138,7 @@ export default function Testimonials() {
               TESTIMONIALS
             </p>
 
-            <h2 className="mt-[8px] font-heading text-[48px] font-semibold leading-[52px] tracking-[-0.015em] text-espresso sm:text-[58px] sm:leading-[62px] lg:text-[64px] lg:leading-[68px]">
+            <h2 className="mt-[8px] font-heading text-[45px] font-semibold leading-[52px] tracking-[-0.015em] text-espresso sm:text-[58px] sm:leading-[62px] lg:text-[64px] lg:leading-[68px]">
               A few words from
               <br />
               <span className="text-bronze-gold">

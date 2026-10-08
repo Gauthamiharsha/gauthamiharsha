@@ -81,7 +81,7 @@ export default function SelectedLooks() {
             <span className="text-bronze-gold">every detail.</span>
           </h2>
 
-          <p className="mx-auto mt-[16px] max-w-[600px] font-body text-[16px] font-normal leading-[26px] text-espresso/80 sm:mt-[18px] sm:text-[17px] sm:leading-[28px]">
+          <p className="mx-auto mt-[16px] max-w-[600px] font-body text-[15px] font-normal leading-[26px] text-espresso/80 sm:mt-[18px] sm:text-[16px] sm:leading-[28px]">
             A collection of bridal looks created with intention, from timeless
             elegance to modern sophistication.
           </p>

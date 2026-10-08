@@ -116,7 +116,7 @@ export default function AboutPage() {
                   MY STORY
                 </p>
 
-                <h2 className="mt-[8px] font-heading text-[42px] font-bold leading-[46px] tracking-[-0.015em] text-espresso sm:text-[52px] sm:leading-[56px]">
+                <h2 className="mt-[8px] font-heading text-[32px] font-bold leading-[36px] tracking-[-0.015em] text-espresso sm:text-[52px] sm:leading-[56px]">
                   From software engineering
                   <br />
                   <span className="text-bronze-gold">
@@ -167,7 +167,7 @@ export default function AboutPage() {
                   MY APPROACH
                 </p>
 
-                <h2 className="mt-[10px] max-w-[700px] font-heading text-[42px] font-semibold leading-[46px] tracking-[-0.015em] text-ivory sm:text-[54px] sm:leading-[58px] lg:text-[60px] lg:leading-[64px]">
+                <h2 className="mt-[10px] max-w-[700px] font-heading text-[36px] font-semibold leading-[40px] tracking-[-0.015em] text-ivory sm:text-[54px] sm:leading-[58px] lg:text-[60px] lg:leading-[64px]">
                   Makeup should enhance
                   <br />
                   <span className="text-champagne-gold">
@@ -297,7 +297,7 @@ export default function AboutPage() {
                 <span>AS RAO NAGAR · HYDERABAD</span>
               </div>
 
-              <h2 className="mt-[12px] font-heading text-[40px] font-semibold leading-[44px] text-espresso sm:text-[48px] sm:leading-[52px]">
+              <h2 className="mt-[12px] font-heading text-[25px] font-bold leading-[29px] text-espresso sm:text-[48px] sm:leading-[52px]">
                 Based in Hyderabad,
                 <br />
                 creating looks made for you.

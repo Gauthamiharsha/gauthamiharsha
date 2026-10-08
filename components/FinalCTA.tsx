@@ -61,7 +61,7 @@ export default function FinalCTA() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
           }`}
         >
-          <h2 className="font-heading text-[42px] font-semibold leading-[46px] tracking-[-0.005em] text-espresso sm:text-[48px] sm:leading-[52px] lg:text-[52px] lg:leading-[56px]">
+          <h2 className="font-heading text-[32px] font-semibold leading-[36px] tracking-[-0.005em] text-espresso sm:text-[48px] sm:leading-[52px] lg:text-[52px] lg:leading-[56px]">
             READY FOR YOUR
             <br />
             MOMENT?

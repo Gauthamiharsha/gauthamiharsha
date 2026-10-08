@@ -75,12 +75,11 @@ export default function SelectedLooks() {
             SELECTED LOOKS
           </p>
 
-          <h2 className="mt-[10px] font-heading text-[44px] font-bold leading-[48px] tracking-[-0.015em] text-espresso sm:mt-[12px] sm:text-[54px] sm:leading-[58px] lg:text-[64px] lg:leading-[68px]">
-            Beauty, captured in
-            <br />
-            <span className="text-bronze-gold">every detail.</span>
-          </h2>
-
+         <h2 className="mt-[10px] font-heading text-[44px] font-bold leading-[48px] tracking-[-0.015em] text-espresso max-[390px]:text-[40px] max-[390px]:leading-[44px] sm:mt-[12px] sm:text-[54px] sm:leading-[58px] lg:text-[64px] lg:leading-[68px]">
+  Beauty, captured in
+  <br />
+  <span className="text-bronze-gold">every detail.</span>
+</h2>
           <p className="mx-auto mt-[16px] max-w-[600px] font-body text-[15px] font-normal leading-[26px] text-espresso/80 sm:mt-[18px] sm:text-[16px] sm:leading-[28px]">
             A collection of bridal looks created with intention, from timeless
             elegance to modern sophistication.

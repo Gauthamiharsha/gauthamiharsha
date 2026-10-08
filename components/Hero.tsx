@@ -13,11 +13,11 @@ export default function Hero() {
       <div className="flex w-full flex-col items-center justify-between gap-[70px] px-[24px] pt-[50px] lg:flex-row lg:items-center lg:gap-0 lg:px-[50px] lg:pt-[30px]">
         {/* Left Hero Content */}
         <div className="hero-content ml-0 flex w-full max-w-[620px] flex-col lg:ml-[50px] lg:w-[620px] lg:max-w-none">
-          <h1 className="font-heading text-[56px] font-bold leading-[60px] tracking-[-0.015em] text-espresso sm:text-[68px] sm:leading-[72px] lg:text-[80px] lg:leading-[84px]">
-            Made For Your
-            <br />
-            <span className="text-bronze-gold">Moment</span>
-          </h1>
+          <h1 className="font-heading text-[56px] font-bold leading-[60px] tracking-[-0.015em] text-espresso max-[390px]:text-[51px] max-[390px]:leading-[55px] sm:text-[68px] sm:leading-[72px] lg:text-[80px] lg:leading-[84px]">
+  Made For Your
+  <br />
+  <span className="text-bronze-gold">Moment</span>
+</h1>
 
           <p className="mt-[20px] max-w-[590px] font-body text-[17px] font-normal leading-[28px] text-espresso sm:text-[18px] sm:leading-[30px] lg:text-[18px] lg:leading-[30px]">
             Every bride has her own idea of what beautiful feels like. I bring

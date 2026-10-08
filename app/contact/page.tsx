@@ -96,14 +96,13 @@ Thank you.`;
                 <p className="font-body text-[11px] font-semibold leading-[18px] tracking-[0.2em] text-champagne-gold">
                   GET IN TOUCH
                 </p>
-
-                <h2 className="mt-[10px] max-w-[430px] font-heading text-[42px] font-semibold leading-[46px] tracking-[-0.015em] text-ivory sm:text-[50px] sm:leading-[54px]">
-                  Let&apos;s talk about
-                  <br />
-                  <span className="text-champagne-gold">
-                    your special day.
-                  </span>
-                </h2>
+<h2 className="mt-[10px] max-w-[430px] font-heading text-[42px] font-semibold leading-[46px] tracking-[-0.015em] text-ivory max-[380px]:text-[37px] max-[380px]:leading-[41px] sm:text-[50px] sm:leading-[54px]">
+  Let&apos;s talk about
+  <br />
+  <span className="text-champagne-gold">
+    your special day.
+  </span>
+</h2>
 
                 <p className="mt-[20px] max-w-[430px] font-body text-[15px] leading-[26px] text-ivory/70 sm:text-[16px] sm:leading-[28px]">
                   Whether you are planning your wedding, an engagement,

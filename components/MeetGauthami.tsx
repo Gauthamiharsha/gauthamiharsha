@@ -88,11 +88,11 @@ export default function MeetGauthami() {
             MEET GAUTHAMI
           </p>
 
-          <h2 className="relative z-10 mt-[14px] max-w-[650px] font-heading text-[48px] font-bold leading-[52px] tracking-[-0.015em] text-espresso sm:text-[56px] sm:leading-[60px] lg:text-[64px] lg:leading-[68px]">
-            Makeup that feels
-            <br />
-            <span className="text-bronze-gold">like you.</span>
-          </h2>
+         <h2 className="relative z-10 mt-[14px] max-w-[650px] font-heading text-[48px] font-bold leading-[52px] tracking-[-0.015em] text-espresso max-[390px]:text-[43px] max-[390px]:leading-[47px] sm:text-[56px] sm:leading-[60px] lg:text-[64px] lg:leading-[68px]">
+  Makeup that feels
+  <br />
+  <span className="text-bronze-gold">like you.</span>
+</h2>
 
           <p className="relative z-10 mt-[24px] max-w-[620px] font-body text-[17px] font-normal leading-[28px] text-espresso sm:text-[18px] sm:leading-[30px] lg:text-[18px] lg:leading-[30px]">
             I believe makeup should enhance the person you already are, not

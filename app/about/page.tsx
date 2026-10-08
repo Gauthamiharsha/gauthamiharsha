@@ -115,14 +115,13 @@ export default function AboutPage() {
                 <p className="font-body text-[11px] font-semibold leading-[18px] tracking-[0.18em] text-bronze-gold">
                   MY STORY
                 </p>
-
-                <h2 className="mt-[8px] font-heading text-[32px] font-bold leading-[36px] tracking-[-0.015em] text-espresso sm:text-[52px] sm:leading-[56px]">
-                  From software engineering
-                  <br />
-                  <span className="text-bronze-gold">
-                    to makeup artistry.
-                  </span>
-                </h2>
+<h2 className="mt-[8px] font-heading text-[32px] font-bold leading-[36px] tracking-[-0.015em] text-espresso max-[400px]:text-[29px] max-[400px]:leading-[33px] sm:text-[52px] sm:leading-[56px]">
+  From software engineering
+  <br />
+  <span className="text-bronze-gold">
+    to makeup artistry.
+  </span>
+</h2>
 
                 <div className="mt-[25px] space-y-[16px]">
                   <p className="font-body text-[16px] leading-[27px] text-espresso/80 sm:text-[17px] sm:leading-[29px]">
@@ -167,13 +166,13 @@ export default function AboutPage() {
                   MY APPROACH
                 </p>
 
-                <h2 className="mt-[10px] max-w-[700px] font-heading text-[36px] font-semibold leading-[40px] tracking-[-0.015em] text-ivory sm:text-[54px] sm:leading-[58px] lg:text-[60px] lg:leading-[64px]">
-                  Makeup should enhance
-                  <br />
-                  <span className="text-champagne-gold">
-                    who you already are.
-                  </span>
-                </h2>
+                <h2 className="mt-[10px] max-w-[700px] font-heading text-[36px] font-semibold leading-[40px] tracking-[-0.015em] text-ivory max-[400px]:text-[32px] max-[400px]:leading-[36px] sm:text-[54px] sm:leading-[58px] lg:text-[60px] lg:leading-[64px]">
+  Makeup should enhance
+  <br />
+  <span className="text-champagne-gold">
+    who you already are.
+  </span>
+</h2>
               </div>
             </Reveal>
 
@@ -297,11 +296,11 @@ export default function AboutPage() {
                 <span>AS RAO NAGAR · HYDERABAD</span>
               </div>
 
-              <h2 className="mt-[12px] font-heading text-[25px] font-bold leading-[29px] text-espresso sm:text-[48px] sm:leading-[52px]">
-                Based in Hyderabad,
-                <br />
-                creating looks made for you.
-              </h2>
+             <h2 className="mt-[12px] font-heading text-[25px] font-bold leading-[29px] text-espresso max-[400px]:text-[23px] max-[400px]:leading-[27px] sm:text-[48px] sm:leading-[52px]">
+  Based in Hyderabad,
+  <br />
+  creating looks made for you.
+</h2>
 
               <p className="mt-[16px] max-w-[620px] font-body text-[15px] leading-[25px] text-espresso/75 sm:text-[16px] sm:leading-[27px]">
                 My studio is based in A S Rao Nagar, Hyderabad, and I currently

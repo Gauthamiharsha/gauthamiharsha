@@ -379,11 +379,11 @@ export default function ServicesPage() {
             LUXURY PRODUCTS
           </p>
 
-          <h2 className="mt-[10px] font-heading text-[42px] font-semibold leading-[44px] tracking-[-0.015em] text-espresso sm:text-[52px] sm:leading-[54px]">
-            Luxury products.
-            <br />
-            <span className="text-bronze-gold">Premium experience.</span>
-          </h2>
+        <h2 className="mt-[10px] font-heading text-[35px] font-semibold leading-[40px] tracking-[-0.015em] text-espresso max-[400px]:text-[31px] max-[400px]:leading-[34px] sm:text-[52px] sm:leading-[54px]">
+  Luxury products.
+  <br />
+  <span className="text-bronze-gold">Premium experience.</span>
+</h2>
 
           <div className="mt-[25px] h-[1px] w-[55px] bg-bronze-gold/50" />
 

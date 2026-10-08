@@ -107,7 +107,7 @@ function TestimonialCard({
         <p
           className={`mt-[20px] font-heading font-medium text-espresso ${
             large
-              ? "text-[22px] leading-[31px] sm:text-[25px] sm:leading-[34px]"
+              ? "text-[19px] leading-[31px] sm:text-[25px] sm:leading-[34px]"
               : "text-[19px] leading-[27px] sm:text-[20px] sm:leading-[29px]"
           }`}
         >
@@ -138,13 +138,13 @@ export default function Testimonials() {
               TESTIMONIALS
             </p>
 
-            <h2 className="mt-[8px] font-heading text-[45px] font-semibold leading-[52px] tracking-[-0.015em] text-espresso sm:text-[58px] sm:leading-[62px] lg:text-[64px] lg:leading-[68px]">
-              A few words from
-              <br />
-              <span className="text-bronze-gold">
-                my beautiful brides.
-              </span>
-            </h2>
+            <h2 className="mt-[8px] font-heading text-[45px] font-semibold leading-[52px] tracking-[-0.015em] text-espresso max-[400px]:text-[40px] max-[400px]:leading-[45px] sm:text-[58px] sm:leading-[62px] lg:text-[64px] lg:leading-[68px]">
+  A few words from
+  <br />
+  <span className="text-bronze-gold">
+    my beautiful brides.
+  </span>
+</h2>
 
             <p className="mx-auto mt-[16px] max-w-[600px] font-body text-[15px] leading-[26px] text-warm-brown sm:text-[16px] sm:leading-[28px]">
               A few words from brides and families who trusted me with their

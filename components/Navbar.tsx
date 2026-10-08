@@ -6,7 +6,7 @@ import { ArrowRight, Menu, X } from "lucide-react";
 const whatsappMessage =
   "Hi Gauthami, I came across your website and I'm interested in your makeup services. I'd love to know more about availability and booking.";
 
-const whatsappUrl = `https://wa.me/919500292511?text=${encodeURIComponent(
+const whatsappUrl = `https://wa.me/919100399380?text=${encodeURIComponent(
   whatsappMessage
 )}`;
 

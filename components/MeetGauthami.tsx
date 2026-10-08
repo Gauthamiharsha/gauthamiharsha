@@ -34,7 +34,24 @@ export default function MeetGauthami() {
       ref={sectionRef}
       className="w-full px-[24px] pt-[140px] pb-[80px] sm:px-[40px] sm:pt-[160px] sm:pb-[90px] lg:px-[50px] lg:pt-[180px] lg:pb-[100px]"
     >
-      <div className="mx-auto flex w-full max-w-[1400px] flex-col items-center gap-[60px] lg:flex-row lg:items-center lg:gap-[90px]">
+     <div className="mx-auto flex w-full max-w-[1400px] flex-col items-center gap-[25px] lg:flex-row lg:items-center lg:gap-[90px]">
+
+{/* Mobile Section Label + Decorative Initial */}
+<div
+  className={`relative flex w-full items-center justify-between lg:hidden transition-all duration-1000 ease-out ${
+    isVisible
+      ? "translate-y-0 opacity-100"
+      : "translate-y-6 opacity-0"
+  }`}
+>
+  <p className="relative z-10 font-body text-[13px] font-semibold leading-[20px] tracking-[0.18em] text-bronze-gold">
+    MEET GAUTHAMI
+  </p>
+
+  <span className="pointer-events-none font-heading text-[85px] font-bold leading-[70px] text-antique-gold/20 sm:text-[105px]">
+    GH
+  </span>
+</div>
 
         {/* Image */}
         <div
@@ -46,7 +63,7 @@ export default function MeetGauthami() {
         >
           <div className="relative h-[500px] w-full overflow-hidden rounded-[20px] sm:h-[600px] lg:h-[600px] lg:w-[500px]">
             <img
-              src="/images/gauthami-about.jpg"
+              src="/images/Gauthami1.jpg"
               alt="Gauthami Harsha - Bridal Makeup Artist"
               className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.02]"
             />
@@ -61,13 +78,13 @@ export default function MeetGauthami() {
               : "translate-x-8 opacity-0"
           }`}
         >
-
-          {/* Decorative Initial */}
-          <span className="pointer-events-none absolute -top-[55px] right-[10px] font-heading text-[100px] font-bold leading-none text-antique-gold/25 sm:-top-[65px] sm:right-[20px] sm:text-[125px] lg:-top-[75px] lg:right-[20px] lg:text-[150px]">
+          {/* Desktop Decorative Initial */}
+          <span className="pointer-events-none absolute -top-[55px] right-[10px] hidden font-heading text-[100px] font-bold leading-none text-antique-gold/25 sm:-top-[65px] sm:right-[20px] sm:text-[125px] lg:block lg:-top-[75px] lg:right-[20px] lg:text-[150px]">
             GH
           </span>
 
-          <p className="relative z-10 font-body text-[13px] font-semibold leading-[20px] tracking-[0.18em] text-bronze-gold lg:text-[14px]">
+          {/* Desktop Section Label */}
+          <p className="relative z-10 hidden font-body text-[13px] font-semibold leading-[20px] tracking-[0.18em] text-bronze-gold lg:block lg:text-[14px]">
             MEET GAUTHAMI
           </p>
 

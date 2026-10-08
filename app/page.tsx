@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MeetGauthami from "@/components/MeetGauthami";
 import SelectedLooks from "@/components/SelectedLooks";
+import Testimonials from "@/components/Testimonials";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
@@ -12,9 +13,14 @@ export default function Home() {
 
       <main className="flex-1">
         <Hero />
+
         <MeetGauthami />
+
         <SelectedLooks />
-         <FinalCTA />
+
+        <Testimonials />
+
+        <FinalCTA />
       </main>
 
       <Footer />

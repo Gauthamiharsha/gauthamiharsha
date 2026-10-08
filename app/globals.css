@@ -156,3 +156,17 @@ img {
     animation: none;
   }
 }
+
+.flat-hyphen {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: #D6AF32;
+  color: #0D0D0D;
+}
+
+::-moz-selection {
+  background: #D6AF32;
+  color: #0D0D0D;
+}

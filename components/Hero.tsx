@@ -3,15 +3,14 @@ import { ArrowRight, Heart } from "lucide-react";
 const whatsappMessage =
   "Hi Gauthami, I came across your website and I'm interested in your makeup services. I'd love to know more about availability and booking.";
 
-const whatsappUrl = `https://wa.me/919500292511?text=${encodeURIComponent(
-  whatsappMessage
+const whatsappUrl = `https://wa.me/919100399380?text=${encodeURIComponent(
+  whatsappMessage,
 )}`;
 
 export default function Hero() {
   return (
     <section className="w-full overflow-hidden">
       <div className="flex w-full flex-col items-center justify-between gap-[70px] px-[24px] pt-[50px] lg:flex-row lg:items-center lg:gap-0 lg:px-[50px] lg:pt-[30px]">
-
         {/* Left Hero Content */}
         <div className="hero-content ml-0 flex w-full max-w-[620px] flex-col lg:ml-[50px] lg:w-[620px] lg:max-w-none">
           <h1 className="font-heading text-[56px] font-bold leading-[60px] tracking-[-0.015em] text-espresso sm:text-[68px] sm:leading-[72px] lg:text-[80px] lg:leading-[84px]">
@@ -29,7 +28,6 @@ export default function Hero() {
           </p>
 
           <div className="mt-[20px] flex flex-col items-stretch gap-[12px] sm:flex-row sm:items-center sm:gap-[15px]">
-
             {/* Enquire Now */}
             <a
               href={whatsappUrl}
@@ -58,7 +56,6 @@ export default function Hero() {
 
         {/* Right Hero Visual */}
         <div className="hero-visual flex h-auto w-full shrink-0 flex-col items-center justify-center lg:h-[587px] lg:w-auto lg:flex-row lg:items-start lg:justify-start">
-
           {/* Mobile Top Decorative Text */}
           <div className="flex shrink-0 items-center justify-center pb-[22px] lg:hidden">
             <div className="flex flex-col items-center text-center text-bronze-gold">
@@ -183,7 +180,6 @@ export default function Hero() {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

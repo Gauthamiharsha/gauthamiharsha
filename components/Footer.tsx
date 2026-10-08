@@ -3,8 +3,8 @@ import { ArrowRight } from "lucide-react";
 const whatsappMessage =
   "Hi Gauthami, I came across your website and I'm interested in your makeup services. I'd love to know more about availability and booking.";
 
-const whatsappUrl = `https://wa.me/919500292511?text=${encodeURIComponent(
-  whatsappMessage
+const whatsappUrl = `https://wa.me/919100399380?text=${encodeURIComponent(
+  whatsappMessage,
 )}`;
 
 const footerLinks = [
@@ -19,7 +19,6 @@ export default function Footer() {
   return (
     <footer className="w-full shrink-0 bg-near-black text-ivory">
       <div className="relative mx-auto flex w-full flex-col px-[24px] py-[70px] sm:px-[40px] sm:py-[80px] lg:h-[355px] lg:px-[64px] lg:py-0">
-
         {/* Left Section */}
         <div className="flex flex-col items-center text-center lg:absolute lg:left-[126px] lg:top-1/2 lg:-translate-y-1/2 lg:items-start lg:text-left">
           <a

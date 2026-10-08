@@ -5,25 +5,25 @@ import { useEffect, useRef, useState } from "react";
 
 const looks = [
   {
-    src: "/images/gauthami-about6.jpg",
+    src: "/images/gauthami-about1.jpg",
     alt: "Bridal makeup by Gauthami Harsha",
     category: "BRIDAL",
     className: "h-[520px]",
   },
   {
-    src: "/images/gauthami-about9.jpg",
+    src: "/images/gauthami-about2.jpg",
     alt: "Bridal makeup by Gauthami Harsha",
     category: "ENGAGEMENT",
     className: "h-[390px]",
   },
   {
-    src: "/images/gauthami-about1.jpg",
+    src: "/images/gauthami-about3.jpg",
     alt: "Bridal makeup by Gauthami Harsha",
     category: "RECEPTION",
     className: "h-[390px]",
   },
   {
-    src: "/images/gauthami-about8.jpg",
+    src: "/images/gauthami-about4.jpg",
     alt: "Bridal makeup by Gauthami Harsha",
     category: "BRIDE",
     className: "h-[520px]",

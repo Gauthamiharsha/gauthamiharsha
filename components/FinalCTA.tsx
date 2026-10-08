@@ -6,8 +6,8 @@ import { useEffect, useRef, useState } from "react";
 const whatsappMessage =
   "Hi Gauthami, I came across your website and I'm interested in your makeup services. I'd love to know more about availability and booking.";
 
-const whatsappUrl = `https://wa.me/919500292511?text=${encodeURIComponent(
-  whatsappMessage
+const whatsappUrl = `https://wa.me/919100399380?text=${encodeURIComponent(
+  whatsappMessage,
 )}`;
 
 export default function FinalCTA() {
@@ -28,7 +28,7 @@ export default function FinalCTA() {
       },
       {
         threshold: 0.15,
-      }
+      },
     );
 
     observer.observe(section);
@@ -43,9 +43,7 @@ export default function FinalCTA() {
     >
       <div
         className={`mx-auto flex w-full max-w-[1250px] flex-col overflow-hidden rounded-[16px] bg-champagne-gold transition-all duration-1000 ease-out sm:rounded-[20px] lg:h-[566px] lg:flex-row ${
-          isVisible
-            ? "translate-y-0 opacity-100"
-            : "translate-y-10 opacity-0"
+          isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
         }`}
       >
         {/* Image */}
@@ -60,9 +58,7 @@ export default function FinalCTA() {
         {/* Right Content */}
         <div
           className={`flex w-full flex-1 flex-col items-center justify-center px-[28px] py-[55px] text-center transition-all delay-150 duration-1000 ease-out sm:px-[50px] sm:py-[65px] lg:h-full lg:px-[70px] lg:py-0 ${
-            isVisible
-              ? "translate-y-0 opacity-100"
-              : "translate-y-6 opacity-0"
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
           }`}
         >
           <h2 className="font-heading text-[42px] font-semibold leading-[46px] tracking-[-0.005em] text-espresso sm:text-[48px] sm:leading-[52px] lg:text-[52px] lg:leading-[56px]">
@@ -73,8 +69,8 @@ export default function FinalCTA() {
 
           <p className="mt-[20px] max-w-[550px] font-body text-[15px] font-normal leading-[25px] text-espresso sm:mt-[25px] sm:text-[16px] sm:leading-[26px]">
             Tell me what you have in mind, what you're looking for, and how you
-            want to feel. I'll take it from there and create a look that's
-            truly yours.
+            want to feel. I'll take it from there and create a look that's truly
+            yours.
           </p>
 
           <a

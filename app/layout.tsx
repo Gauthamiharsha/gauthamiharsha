@@ -42,8 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
+    <html lang="en" data-scroll-behavior="smooth"
       className={`${cormorant.variable} ${manrope.variable} ${monteCarlo.variable} ${greatVibes.variable}`}
     >
       <body className="flex min-h-screen flex-col">

@@ -67,7 +67,7 @@ export default function AdminLoginPage() {
           </p>
 
           <h1 className="mt-[8px] font-heading text-[48px] font-semibold leading-[50px] text-espresso">
-            Welcome back.
+            Login Page.
           </h1>
 
           <p className="mx-auto mt-[12px] max-w-[340px] font-body text-[14px] leading-[23px] text-warm-brown">

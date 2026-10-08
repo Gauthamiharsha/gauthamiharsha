@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Image from "next/image";
 
 const portfolioLooks = [
   {
@@ -241,10 +241,8 @@ export default function PortfolioPage() {
             {/* ================================================== */}
 
             <div
-              className={`text-center transition-all duration-700 ease-out ${
-                isVisible
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-5 opacity-0"
+              className={`text-center transition-opacity duration-500 ${
+                isVisible ? "opacity-100" : "opacity-0"
               }`}
             >
               <h1 className="font-body text-[13px] font-semibold leading-[20px] tracking-[0.2em] text-bronze-gold sm:text-[14px]">
@@ -265,47 +263,44 @@ export default function PortfolioPage() {
               {portfolioLooks.map((look, index) => (
                 <div
                   key={`${look.src}-${index}`}
-                  className={`
-                    group relative overflow-hidden rounded-[12px]
-                    transition-all duration-1000 ease-out
-                    sm:rounded-[14px]
-                    lg:rounded-[16px]
-
-                    ${
-                      isVisible
-                        ? "translate-y-0 opacity-100"
-                        : "translate-y-10 opacity-0"
-                    }
-
-                    ${
-                      index % 4 === 1 || index % 4 === 2
-                        ? "mt-[35px] sm:mt-[50px] lg:mt-[65px]"
-                        : ""
-                    }
-
-                    ${
-                      look.type === "tall"
-                        ? "h-[360px] sm:h-[440px] lg:h-[520px]"
-                        : "h-[300px] sm:h-[350px] lg:h-[390px]"
-                    }
-                  `}
+                  className={`group relative overflow-hidden rounded-[12px] sm:rounded-[14px] lg:rounded-[16px] ${
+                    isVisible
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-[8px] opacity-0"
+                  } ${
+                    index % 4 === 1 || index % 4 === 2
+                      ? "mt-[35px] sm:mt-[50px] lg:mt-[65px]"
+                      : ""
+                  } ${
+                    look.type === "tall"
+                      ? "h-[360px] sm:h-[440px] lg:h-[520px]"
+                      : "h-[300px] sm:h-[350px] lg:h-[390px]"
+                  }`}
                   style={{
-                    transitionDelay: `${120 + index * 100}ms`,
+                    contentVisibility: "auto",
+                    containIntrinsicSize:
+                      look.type === "tall" ? "520px" : "390px",
+                    transition:
+                      "opacity 500ms ease-out, transform 500ms ease-out",
                   }}
                 >
-       {/* Image */}
-               <img
-  src={look.src}
-  alt={look.alt}
-  loading={index < 4 ? "eager" : "lazy"}
-  decoding="async"
-  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-/>
+                  {/* Image */}
+                  <Image
+                    src={look.src}
+                    alt={look.alt}
+                    fill
+                    sizes="(max-width: 639px) 50vw, (max-width: 1023px) 50vw, 25vw"
+                    quality={95}
+                    priority={index < 2}
+                    loading={index < 2 ? undefined : "lazy"}
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025]"
+                  />
+
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-near-black/65 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                   {/* Category */}
-                  <div className="absolute bottom-[14px] left-[14px] translate-y-[10px] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 sm:bottom-[18px] sm:left-[18px] lg:bottom-[20px] lg:left-[20px]">
+                  <div className="absolute bottom-[14px] left-[14px] translate-y-[8px] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 sm:bottom-[18px] sm:left-[18px] lg:bottom-[20px] lg:left-[20px]">
                     <p className="font-body text-[9px] font-semibold leading-[16px] tracking-[0.2em] text-ivory sm:text-[10px] lg:text-[11px]">
                       {look.category}
                     </p>

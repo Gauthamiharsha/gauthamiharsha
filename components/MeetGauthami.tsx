@@ -97,7 +97,7 @@ export default function MeetGauthami() {
           <p className="relative z-10 mt-[24px] max-w-[620px] font-body text-[17px] font-normal leading-[28px] text-espresso sm:text-[18px] sm:leading-[30px] lg:text-[18px] lg:leading-[30px]">
             I believe makeup should enhance the person you already are, not
             hide it. My approach is centered around creating looks that feel
-            elegant, comfortable, and true to your personality — especially
+            elegant, comfortable, and true to your personality, especially
             on the moments that matter most.
           </p>
 

@@ -32,10 +32,60 @@ const greatVibes = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  title: "Gauthami Harsha | Makeup Artist in Hyderabad",
+  metadataBase: new URL("https://gauthamiharsha.vercel.app"),
+  title: {
+    default: "Gauthami Harsha | Bridal Makeup Artist in Hyderabad",
+    template: "%s | Gauthami Harsha",
+  },
   description:
-    "Gauthami Harsha is a makeup artist in Hyderabad, creating elegant and personalized looks for bridal and special occasions.",
+    "Gauthami Harsha is a bridal makeup artist in Hyderabad, specializing in bridal, engagement, reception, and occasion makeup. Enquire for bookings.",
+  keywords: [
+    "Gauthami Harsha",
+    "bridal makeup artist in Hyderabad",
+    "makeup artist in Hyderabad",
+    "bridal makeup Hyderabad",
+    "engagement makeup Hyderabad",
+    "reception makeup Hyderabad",
+    "HD makeup Hyderabad",
+    "airbrush makeup Hyderabad",
+    "makeup artist A S Rao Nagar",
+  ],
+  authors: [{ name: "Gauthami Harsha" }],
+  creator: "Gauthami Harsha",
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://gauthamiharsha.vercel.app",
+    siteName: "Gauthami Harsha",
+    title: "Gauthami Harsha | Bridal Makeup Artist in Hyderabad",
+    description:
+      "Elegant bridal, engagement, reception, and occasion makeup by Gauthami Harsha in Hyderabad.",
+    images: [
+      {
+        url: "/images/hero-bride.jpg",
+        width: 1200,
+        height: 1600,
+        alt: "Bridal makeup by Gauthami Harsha in Hyderabad",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gauthami Harsha | Bridal Makeup Artist in Hyderabad",
+    description:
+      "Bridal, engagement, reception, and occasion makeup in Hyderabad.",
+    images: ["/images/hero-bride.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{

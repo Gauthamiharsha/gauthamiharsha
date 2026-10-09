@@ -113,9 +113,7 @@ export default function ServicesPage() {
       <Navbar />
 
       <main className="flex-1 bg-ivory">
-      {/* ================================================== */}
-{/* PAGE INTRO */}
-{/* ================================================== */}
+   
 
 <section className="w-full px-[24px] pb-[40px] pt-[45px] sm:px-[40px] sm:pb-[45px] sm:pt-[55px] lg:px-[50px] lg:pb-[50px] lg:pt-[60px]">
   <div className="mx-auto max-w-[800px] text-center">
@@ -130,9 +128,7 @@ export default function ServicesPage() {
   </div>
 </section>
 
-        {/* ================================================== */}
-        {/* BRIDAL MAKEUP */}
-        {/* ================================================== */}
+       
 
         <section className="w-full px-[24px] pb-[90px] sm:px-[40px] sm:pb-[110px] lg:px-[50px] lg:pb-[125px]">
           <div className="mx-auto max-w-[1200px]">
@@ -193,9 +189,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* ================================================== */}
-        {/* BRIDESMAID / NON BRIDAL */}
-        {/* ================================================== */}
+      
 
         <section className="w-full bg-champagne/35 px-[24px] py-[90px] sm:px-[40px] sm:py-[110px] lg:px-[50px] lg:py-[125px]">
           <div className="mx-auto max-w-[1200px]">
@@ -246,13 +240,11 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* ================================================== */}
-        {/* GROOM + ADD ONS */}
-        {/* ================================================== */}
+    
 
         <section className="w-full px-[24px] py-[90px] sm:px-[40px] sm:py-[110px] lg:px-[50px] lg:py-[125px]">
           <div className="mx-auto grid max-w-[1200px] gap-[45px] lg:grid-cols-[0.9fr_1.1fr] lg:gap-[80px]">
-            {/* Groom */}
+           
 
             <ServiceReveal>
               <div>
@@ -284,7 +276,7 @@ export default function ServicesPage() {
               </div>
             </ServiceReveal>
 
-            {/* Add Ons */}
+          
 
             <ServiceReveal delay={120}>
               <div>
@@ -319,9 +311,6 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* ================================================== */}
-        {/* OCCASIONS */}
-        {/* ================================================== */}
 
         <section className="w-full bg-near-black px-[24px] py-[90px] sm:px-[40px] sm:py-[110px] lg:px-[50px] lg:py-[125px]">
           <div className="mx-auto max-w-[1200px]">
@@ -358,9 +347,6 @@ export default function ServicesPage() {
           </div>
         </section>
 
-{/* ================================================== */}
-{/* LUXURY PRODUCTS */}
-{/* ================================================== */}
 
 <section className="w-full px-[24px] py-[90px] sm:px-[40px] sm:py-[110px] lg:px-[50px] lg:py-[125px]">
   <div className="mx-auto max-w-[1200px]">
@@ -407,9 +393,6 @@ export default function ServicesPage() {
   </div>
 </section>
 
-        {/* ================================================== */}
-        {/* PRIVATE CLASSES */}
-        {/* ================================================== */}
 
         <section className="w-full px-[24px] py-[90px] sm:px-[40px] sm:py-[110px] lg:px-[50px] lg:py-[125px]">
           <ServiceReveal>

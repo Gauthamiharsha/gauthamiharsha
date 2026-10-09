@@ -36,7 +36,7 @@ export default function MeetGauthami() {
     >
      <div className="mx-auto flex w-full max-w-[1400px] flex-col items-center gap-[25px] lg:flex-row lg:items-center lg:gap-[90px]">
 
-{/* Mobile Section Label + Decorative Initial */}
+
 <div
   className={`relative flex w-full items-center justify-between lg:hidden transition-all duration-1000 ease-out ${
     isVisible
@@ -53,7 +53,7 @@ export default function MeetGauthami() {
   </span>
 </div>
 
-        {/* Image */}
+        
         <div
           className={`relative w-full max-w-[500px] shrink-0 transition-all duration-1000 ease-out ${
             isVisible
@@ -70,7 +70,7 @@ export default function MeetGauthami() {
           </div>
         </div>
 
-        {/* Content */}
+     
         <div
           className={`relative flex w-full flex-1 flex-col transition-all delay-150 duration-1000 ease-out ${
             isVisible
@@ -78,12 +78,12 @@ export default function MeetGauthami() {
               : "translate-x-8 opacity-0"
           }`}
         >
-          {/* Desktop Decorative Initial */}
+          
           <span className="pointer-events-none absolute -top-[55px] right-[10px] hidden font-heading text-[100px] font-bold leading-none text-antique-gold/25 sm:-top-[65px] sm:right-[20px] sm:text-[125px] lg:block lg:-top-[75px] lg:right-[20px] lg:text-[150px]">
             GH
           </span>
 
-          {/* Desktop Section Label */}
+          
           <p className="relative z-10 hidden font-body text-[13px] font-semibold leading-[20px] tracking-[0.18em] text-bronze-gold lg:block lg:text-[14px]">
             MEET GAUTHAMI
           </p>
@@ -107,7 +107,7 @@ export default function MeetGauthami() {
             completely yourself.
           </p>
 
-          {/* Signature + CTA */}
+          
           <div className="relative z-10 mt-[30px] flex flex-col items-start gap-[25px] sm:flex-row sm:items-center sm:gap-0">
             <div>
               <p className="font-logo text-[38px] leading-[40px] text-bronze-gold sm:text-[42px] sm:leading-[42px]">

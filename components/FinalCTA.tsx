@@ -46,7 +46,7 @@ export default function FinalCTA() {
           isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
         }`}
       >
-        {/* Image */}
+      
         <div className="h-[400px] w-full shrink-0 sm:h-[500px] lg:h-[566px] lg:w-[566px]">
           <img
             src="/images/cta-bride.jpg"
@@ -55,7 +55,7 @@ export default function FinalCTA() {
           />
         </div>
 
-        {/* Right Content */}
+       
         <div
           className={`flex w-full flex-1 flex-col items-center justify-center px-[28px] py-[55px] text-center transition-all delay-150 duration-1000 ease-out sm:px-[50px] sm:py-[65px] lg:h-full lg:px-[70px] lg:py-0 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"

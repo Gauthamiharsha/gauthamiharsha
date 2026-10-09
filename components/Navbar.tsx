@@ -25,7 +25,7 @@ export default function Navbar() {
     <header className="relative z-50 h-[80px] w-full bg-champagne-gold shadow-[0_4px_4px_rgba(42,26,8,0.25)]">
       <nav className="flex h-full w-full items-center px-[24px] lg:px-[64px]">
 
-        {/* Logo */}
+      
         <a
           href="/"
           onClick={() => setMenuOpen(false)}
@@ -34,7 +34,7 @@ export default function Navbar() {
           Gauthami Harsha
         </a>
 
-        {/* Desktop Navigation */}
+       
         <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-[30px] lg:flex">
           {navLinks.map((link) => (
             <a
@@ -47,7 +47,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Desktop CTA */}
+      
         <div className="ml-auto hidden lg:block">
           <a
             href={whatsappUrl}
@@ -65,7 +65,7 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Menu Button */}
+     
         <button
           type="button"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -81,7 +81,7 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
+     
       <div
         className={`absolute left-0 top-[80px] w-full overflow-hidden bg-champagne-gold shadow-[0_6px_12px_rgba(42,26,8,0.15)] transition-all duration-300 ease-out lg:hidden ${
           menuOpen
@@ -103,7 +103,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Mobile CTA */}
+         
           <a
             href={whatsappUrl}
             target="_blank"

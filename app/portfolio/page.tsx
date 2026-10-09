@@ -236,9 +236,7 @@ export default function PortfolioPage() {
           className="w-full px-[24px] pb-[100px] pt-[45px] sm:px-[40px] sm:pb-[120px] sm:pt-[55px] lg:px-[50px] lg:pb-[140px] lg:pt-[60px]"
         >
           <div className="mx-auto max-w-[1400px]">
-            {/* ================================================== */}
-            {/* PAGE INTRO */}
-            {/* ================================================== */}
+           
 
             <div
               className={`text-center transition-opacity duration-500 ${
@@ -255,9 +253,7 @@ export default function PortfolioPage() {
               </p>
             </div>
 
-            {/* ================================================== */}
-            {/* PORTFOLIO GALLERY */}
-            {/* ================================================== */}
+           
 
             <div className="mt-[35px] grid grid-cols-2 items-start gap-[12px] sm:mt-[45px] sm:gap-[16px] lg:mt-[55px] lg:grid-cols-4 lg:gap-[18px]">
               {portfolioLooks.map((look, index) => (
@@ -284,7 +280,7 @@ export default function PortfolioPage() {
                       "opacity 500ms ease-out, transform 500ms ease-out",
                   }}
                 >
-                  {/* Image */}
+                 
                   <Image
                     src={look.src}
                     alt={look.alt}
@@ -296,10 +292,10 @@ export default function PortfolioPage() {
                     className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025]"
                   />
 
-                  {/* Hover Overlay */}
+                 
                   <div className="absolute inset-0 bg-gradient-to-t from-near-black/65 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-                  {/* Category */}
+                 
                   <div className="absolute bottom-[14px] left-[14px] translate-y-[8px] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 sm:bottom-[18px] sm:left-[18px] lg:bottom-[20px] lg:left-[20px]">
                     <p className="font-body text-[9px] font-semibold leading-[16px] tracking-[0.2em] text-ivory sm:text-[10px] lg:text-[11px]">
                       {look.category}

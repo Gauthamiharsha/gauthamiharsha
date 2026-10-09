@@ -66,9 +66,7 @@ Thank you.`;
       <Navbar />
 
       <main className="flex-1 bg-ivory">
-        {/* ================================================== */}
-        {/* PAGE INTRO */}
-        {/* ================================================== */}
+        
 
         <section className="w-full px-[24px] pb-[45px] pt-[45px] sm:px-[40px] sm:pb-[50px] sm:pt-[55px] lg:px-[50px] lg:pb-[55px] lg:pt-[60px]">
           <div className="mx-auto max-w-[800px] text-center">
@@ -83,13 +81,11 @@ Thank you.`;
           </div>
         </section>
 
-        {/* ================================================== */}
-        {/* CONTACT + FORM */}
-        {/* ================================================== */}
+       
 
         <section className="w-full px-[24px] pb-[90px] sm:px-[40px] sm:pb-[110px] lg:px-[50px] lg:pb-[125px]">
           <div className="mx-auto grid max-w-[1200px] gap-[25px] lg:grid-cols-[0.8fr_1.2fr] lg:gap-[35px]">
-            {/* LEFT - CONTACT DETAILS */}
+            
 
             <div className="flex flex-col rounded-[16px] bg-near-black px-[28px] py-[35px] sm:px-[40px] sm:py-[45px] lg:min-h-[650px] lg:px-[45px] lg:py-[50px]">
               <div>
@@ -111,10 +107,9 @@ Thank you.`;
                 </p>
               </div>
 
-              {/* CONTACT ITEMS */}
-
+             
               <div className="mt-[40px] space-y-[25px]">
-                {/* Location */}
+                
 
                 <div className="flex items-start gap-[16px]">
                   <div className="flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-[6px] border border-champagne-gold/25">
@@ -138,7 +133,7 @@ Thank you.`;
                   </div>
                 </div>
 
-                {/* WhatsApp */}
+             
 
                 <div className="flex items-start gap-[16px]">
                   <a
@@ -171,7 +166,7 @@ Thank you.`;
                   </div>
                 </div>
 
-                {/* Instagram */}
+                
 
                 <div className="flex items-start gap-[16px]">
                   <a
@@ -204,7 +199,7 @@ Thank you.`;
                 </div>
               </div>
 
-              {/* WHATSAPP CTA */}
+              
 
               <div className="mt-auto pt-[40px]">
                 <a
@@ -224,7 +219,7 @@ Thank you.`;
               </div>
             </div>
 
-            {/* RIGHT - ENQUIRY FORM */}
+            
 
             <div className="rounded-[16px] border border-bronze-gold/20 bg-champagne/30 px-[25px] py-[35px] sm:px-[40px] sm:py-[45px] lg:px-[50px] lg:py-[50px]">
               <div>
@@ -246,7 +241,7 @@ Thank you.`;
                 onSubmit={handleSubmit}
                 className="mt-[32px] space-y-[22px]"
               >
-                {/* Name + Phone */}
+                
 
                 <div className="grid gap-[22px] sm:grid-cols-2">
                   <div>
@@ -286,7 +281,7 @@ Thank you.`;
                   </div>
                 </div>
 
-                {/* Email */}
+              
 
                 <div>
                   <label
@@ -305,7 +300,7 @@ Thank you.`;
                   />
                 </div>
 
-                {/* Service */}
+              
 
                 <div>
                   <label
@@ -345,7 +340,7 @@ Thank you.`;
                   </select>
                 </div>
 
-                {/* Event Date */}
+              
 
                 <div>
                   <label
@@ -363,7 +358,7 @@ Thank you.`;
                   />
                 </div>
 
-                {/* Message */}
+                
 
                 <div>
                   <label
@@ -383,7 +378,7 @@ Thank you.`;
                   />
                 </div>
 
-                {/* Submit */}
+              
 
                 <button
                   type="submit"
@@ -402,9 +397,7 @@ Thank you.`;
           </div>
         </section>
 
-        {/* ================================================== */}
-        {/* LOCATION / BOOKING NOTE */}
-        {/* ================================================== */}
+      
 
         <section className="w-full px-[24px] pb-[100px] sm:px-[40px] sm:pb-[120px] lg:px-[50px] lg:pb-[140px]">
           <div className="mx-auto max-w-[1200px] border-t border-bronze-gold/20 pt-[45px] sm:pt-[55px]">

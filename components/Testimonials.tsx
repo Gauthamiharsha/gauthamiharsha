@@ -92,7 +92,7 @@ function TestimonialCard({
           : "px-[24px] py-[28px] sm:px-[30px] sm:py-[32px]"
       } hover:-translate-y-[2px] hover:border-bronze-gold/35 hover:shadow-[0_12px_30px_rgba(42,26,8,0.08)]`}
     >
-      {/* Decorative Quote */}
+     
       <div className="absolute right-[22px] top-[8px] font-heading text-[90px] font-semibold leading-none text-antique-gold/10 transition-transform duration-500 group-hover:scale-105">
         “
       </div>
@@ -128,9 +128,7 @@ export default function Testimonials() {
   return (
     <section className="w-full px-[24px] py-[100px] sm:px-[40px] sm:py-[120px] lg:px-[50px] lg:py-[150px]">
       <div className="mx-auto max-w-[1400px]">
-        {/* ================================================== */}
-        {/* SECTION INTRO */}
-        {/* ================================================== */}
+       
 
         <Reveal>
           <div className="mx-auto max-w-[750px] text-center">
@@ -153,12 +151,10 @@ export default function Testimonials() {
           </div>
         </Reveal>
 
-        {/* ================================================== */}
-        {/* DESKTOP / TABLET GRID */}
-        {/* ================================================== */}
+      
 
         <div className="mt-[55px] hidden gap-[18px] lg:grid lg:grid-cols-12">
-          {/* LEFT COLUMN */}
+          
           <div className="col-span-5 flex flex-col gap-[18px]">
             <Reveal delay={100} className="h-full">
               <TestimonialCard
@@ -172,7 +168,6 @@ export default function Testimonials() {
             </Reveal>
           </div>
 
-          {/* CENTER */}
           <div className="col-span-4">
             <Reveal delay={150} className="h-full">
               <TestimonialCard
@@ -182,7 +177,7 @@ export default function Testimonials() {
             </Reveal>
           </div>
 
-          {/* RIGHT COLUMN */}
+        
           <div className="col-span-3 flex flex-col gap-[18px]">
             <Reveal delay={200} className="h-full">
               <TestimonialCard testimonial={testimonials[0]} />
@@ -193,7 +188,7 @@ export default function Testimonials() {
             </Reveal>
           </div>
 
-          {/* BOTTOM */}
+    
           <div className="col-span-12">
             <Reveal delay={350}>
               <TestimonialCard
@@ -204,9 +199,6 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* ================================================== */}
-        {/* MOBILE */}
-        {/* ================================================== */}
 
         <div className="mt-[40px] flex flex-col gap-[16px] lg:hidden">
           {testimonials.map((testimonial, index) => (

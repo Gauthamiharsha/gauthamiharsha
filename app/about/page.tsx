@@ -66,9 +66,6 @@ export default function AboutPage() {
       <Navbar />
 
       <main className="flex-1 bg-ivory">
-        {/* ================================================== */}
-        {/* PAGE INTRO */}
-        {/* ================================================== */}
 
         <section className="w-full px-[24px] pb-[45px] pt-[45px] sm:px-[40px] sm:pb-[50px] sm:pt-[55px] lg:px-[50px] lg:pb-[55px] lg:pt-[60px]">
           <Reveal>
@@ -85,13 +82,10 @@ export default function AboutPage() {
           </Reveal>
         </section>
 
-        {/* ================================================== */}
-        {/* HER STORY */}
-        {/* ================================================== */}
 
         <section className="w-full px-[24px] pb-[100px] sm:px-[40px] sm:pb-[120px] lg:px-[50px] lg:pb-[150px]">
           <div className="mx-auto grid max-w-[1200px] items-center gap-[45px] lg:grid-cols-[0.85fr_1.15fr] lg:gap-[85px]">
-            {/* Image */}
+           
             <Reveal>
               <div className="relative mx-auto w-full max-w-[500px]">
                 <div className="h-[520px] w-full overflow-hidden rounded-[20px] sm:h-[620px] lg:h-[650px]">
@@ -102,14 +96,14 @@ export default function AboutPage() {
                   />
                 </div>
 
-                {/* Decorative Initial */}
+                
                 <span className="pointer-events-none absolute -bottom-[35px] -right-[5px] font-heading text-[100px] font-bold leading-none text-antique-gold/20 sm:-bottom-[45px] sm:right-[5px] sm:text-[125px] lg:-right-[20px] lg:text-[150px]">
                   GH
                 </span>
               </div>
             </Reveal>
 
-            {/* Story */}
+         
             <Reveal delay={120}>
               <div>
                 <p className="font-body text-[11px] font-semibold leading-[18px] tracking-[0.18em] text-bronze-gold">
@@ -154,9 +148,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ================================================== */}
-        {/* APPROACH */}
-        {/* ================================================== */}
+       
 
         <section className="w-full bg-near-black px-[24px] py-[90px] sm:px-[40px] sm:py-[110px] lg:px-[50px] lg:py-[125px]">
           <div className="mx-auto grid max-w-[1200px] items-center gap-[45px] lg:grid-cols-[1fr_0.8fr] lg:gap-[100px]">
@@ -197,9 +189,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ================================================== */}
-        {/* BEYOND BRIDAL */}
-        {/* ================================================== */}
+    
 
         <section className="w-full px-[24px] py-[90px] sm:px-[40px] sm:py-[110px] lg:px-[50px] lg:py-[125px]">
           <div className="mx-auto max-w-[1200px]">
@@ -284,9 +274,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ================================================== */}
-        {/* STUDIO + BOOKINGS */}
-        {/* ================================================== */}
+    
 
         <section className="w-full px-[24px] pb-[100px] sm:px-[40px] sm:pb-[120px] lg:px-[50px] lg:pb-[140px]">
           <Reveal>

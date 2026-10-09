@@ -63,7 +63,7 @@ export default function SelectedLooks() {
     >
       <div className="mx-auto max-w-[1400px]">
 
-        {/* Section Heading */}
+        
         <div
           className={`text-center transition-all duration-1000 ease-out ${
             isVisible
@@ -86,7 +86,7 @@ export default function SelectedLooks() {
           </p>
         </div>
 
-        {/* Gallery */}
+       
         <div className="mt-[45px] grid grid-cols-2 items-start gap-[12px] sm:mt-[55px] sm:gap-[16px] lg:mt-[65px] lg:grid-cols-4 lg:gap-[18px]">
           {looks.map((look, index) => (
             <div
@@ -119,10 +119,10 @@ export default function SelectedLooks() {
                 className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
               />
 
-              {/* Overlay */}
+            
               <div className="absolute inset-0 bg-gradient-to-t from-near-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-              {/* Category */}
+             
               <div className="absolute bottom-[14px] left-[14px] translate-y-[10px] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 sm:bottom-[18px] sm:left-[18px] lg:bottom-[20px] lg:left-[20px]">
                 <p className="font-body text-[9px] font-semibold leading-[16px] tracking-[0.2em] text-ivory sm:text-[10px] lg:text-[11px]">
                   {look.category}
@@ -132,7 +132,7 @@ export default function SelectedLooks() {
           ))}
         </div>
 
-        {/* CTA */}
+     
         <div
           className={`mt-[45px] flex justify-center transition-all delay-[650ms] duration-800 ease-out sm:mt-[50px] lg:mt-[55px] ${
             isVisible

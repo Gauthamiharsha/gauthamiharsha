@@ -204,12 +204,7 @@ export async function POST(
         new Date().toISOString(),
     };
 
-    /*
-      Check for overlapping bookings.
-
-      Cancelled bookings do not block
-      a time slot.
-    */
+   
 
     const existingBookings =
       await bookingsCollection
@@ -263,9 +258,7 @@ export async function POST(
       );
     }
 
-    /*
-      Save / update client
-    */
+
 
     const clientToSave: Omit<
       MongoClientDocument,
@@ -294,9 +287,7 @@ export async function POST(
       }
     );
 
-    /*
-      Save / update booking
-    */
+
 
     const bookingToStore: Omit<
       MongoBookingDocument,

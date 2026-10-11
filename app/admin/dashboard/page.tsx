@@ -7,10 +7,12 @@ import {
   ChevronRight,
   Clock3,
   IndianRupee,
+  KeyRound,
   LogOut,
   Plus,
   Search,
   UserRound,
+  X,
 } from "lucide-react";
 import { addMonths, format, subMonths } from "date-fns";
 
@@ -25,6 +27,7 @@ import BookingCalendar from "@/components/admin/BookingCalendar";
 import BookingDetails from "@/components/admin/BookingDetails";
 import BookingModal from "@/components/admin/BookingModal";
 import ClientDetails from "@/components/admin/ClientDetails";
+import ChangePasswordModal from "@/components/admin/ChangePasswordModal";
 
 import {
   formatIndianTime,
@@ -41,7 +44,7 @@ export default function DashboardPage() {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] =
     useState<BookingStatus | "All">("All");
-
+const [isPasswordModalOpen, setIsPasswordModalOpen] = useState(false);
   const [selectedBooking, setSelectedBooking] =
     useState<Booking | null>(null);
 
@@ -393,35 +396,42 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F4EFE5] text-[#2A1A08]">
-      <header className="border-b border-[#D6AF32]/15 bg-[#F8F4EA]">
-        <div className="mx-auto flex max-w-[1500px] items-center justify-between px-[22px] py-[18px] lg:px-[34px]">
-          <div>
-            <p className="font-body text-[9px] font-semibold tracking-[0.24em] text-[#A67417]">
-              GAUTHAMI HARSHA
-            </p>
+<div className="min-h-screen bg-[#F4EFE5] text-[#2A1A08]">
+  <header className="border-b border-[#D6AF32]/15 bg-[#F8F4EA]">
+    <div className="mx-auto flex max-w-[1500px] flex-col gap-[15px] px-[22px] py-[18px] sm:flex-row sm:items-center sm:justify-between lg:px-[34px]">
+      <div>
+        <p className="font-body text-[9px] font-semibold tracking-[0.24em] text-[#A67417]">
+          GAUTHAMI HARSHA
+        </p>
+        <h1 className="mt-[3px] font-heading text-[29px] font-semibold leading-[32px] text-[#2A1A08]">
+          Booking Dashboard
+        </h1>
+      </div>
 
-            <h1 className="mt-[3px] font-heading text-[29px] font-semibold leading-[32px] text-[#2A1A08]">
-              Booking Dashboard
-            </h1>
-          </div>
+      <div className="flex flex-wrap items-center gap-[9px]">
+        <button
+          type="button"
+          onClick={() => setIsPasswordModalOpen(true)}
+          className="flex h-[42px] cursor-pointer items-center justify-center gap-[8px] rounded-[7px] border border-[#D6AF32]/50 bg-[#EFE5D0] px-[15px] font-body text-[11px] font-semibold text-[#6B5130] transition-all duration-200 hover:border-[#A67417] hover:bg-[#F2C84B]/25 hover:text-[#2A1A08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A67417]"
+        >
+          <KeyRound size={15} />
+          Change Password
+        </button>
 
-          <button
-            type="button"
-            onClick={async () => {
-              await fetch("/api/admin/logout", {
-                method: "POST",
-              });
-
-              window.location.href = "/admin/login";
-            }}
-            className="flex h-[40px] cursor-pointer items-center gap-[7px] rounded-[7px] border border-[#D6AF32]/20 bg-white px-[13px] font-body text-[10px] font-semibold text-[#6B5130] transition-all hover:border-[#D6AF32] hover:bg-[#EFE5D0]"
-          >
-            <LogOut size={14} />
-            Logout
-          </button>
-        </div>
-      </header>
+        <button
+          type="button"
+          onClick={async () => {
+            await fetch("/api/admin/logout", { method: "POST" });
+            window.location.href = "/admin/login";
+          }}
+          className="flex h-[42px] cursor-pointer items-center justify-center gap-[8px] rounded-[7px] border border-[#D6AF32]/20 bg-white px-[15px] font-body text-[11px] font-semibold text-[#6B5130] transition-all duration-200 hover:border-[#D6AF32]/60 hover:bg-[#EFE5D0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A67417]"
+        >
+          <LogOut size={15} />
+          Logout
+        </button>
+      </div>
+    </div>
+  </header>
 
       <main className="mx-auto max-w-[1500px] px-[22px] py-[24px] lg:px-[34px] lg:py-[30px]">
         {/* Dashboard statistics */}
@@ -918,6 +928,11 @@ export default function DashboardPage() {
             onSave={handleSaveClientPayment}
           />
         )}
+        {isPasswordModalOpen && (
+  <ChangePasswordModal
+    onClose={() => setIsPasswordModalOpen(false)}
+  />
+)}
       </main>
     </div>
   );

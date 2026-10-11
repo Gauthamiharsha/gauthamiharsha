@@ -13,6 +13,9 @@ export type Client = {
   email: string;
   notes: string;
   createdAt: string;
+
+  packageAmount: number;
+  advancePaid: number;
 };
 
 export type Booking = {

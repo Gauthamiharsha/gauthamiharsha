@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  FormEvent,
+  type FormEvent,
   useMemo,
   useState,
   type ReactNode,
@@ -14,8 +14,6 @@ import type {
   BookingStatus,
   Client,
 } from "@/types/booking";
-
-import { getBalance } from "@/lib/booking-utils";
 
 type Props = {
   clients: Client[];
@@ -43,32 +41,63 @@ export default function BookingModal({
   onClose,
   onSave,
 }: Props) {
-  const [existingClientId, setExistingClientId] = useState(editingBooking?.clientId || "");
+  const [existingClientId, setExistingClientId] =
+    useState(editingBooking?.clientId || "");
 
-  const [isNewClient, setIsNewClient] = useState(clients.length === 0 && !editingBooking);
+  const [isNewClient, setIsNewClient] = useState(
+    clients.length === 0 && !editingBooking
+  );
 
-  const existingClient = clients.find((client) => client.id === existingClientId);
+  const existingClient = clients.find(
+    (client) => client.id === existingClientId
+  );
 
-  const [clientName, setClientName] = useState(existingClient?.name || "");
-  const [phone, setPhone] = useState(existingClient?.phone || "");
-  const [email, setEmail] = useState(existingClient?.email || "");
-  const [clientNotes, setClientNotes] = useState(existingClient?.notes || "");
+  const [clientName, setClientName] = useState(
+    existingClient?.name || ""
+  );
 
-  const [eventType, setEventType] = useState(editingBooking?.eventType || "");
-  const [date, setDate] = useState(editingBooking?.date || prefilledDate);
-  const [startTime, setStartTime] = useState(editingBooking?.startTime || "");
-  const [endTime, setEndTime] = useState(editingBooking?.endTime || "");
-  const [location, setLocation] = useState(editingBooking?.location || "");
+  const [phone, setPhone] = useState(
+    existingClient?.phone || ""
+  );
 
-  const [amount, setAmount] = useState(String(editingBooking?.amount || ""));
-  const [advance, setAdvance] = useState(String(editingBooking?.advance || ""));
+  const [email, setEmail] = useState(
+    existingClient?.email || ""
+  );
 
-  const [status, setStatus] = useState<BookingStatus>(editingBooking?.status || "Tentative");
+  const [clientNotes, setClientNotes] = useState(
+    existingClient?.notes || ""
+  );
 
-  const [notes, setNotes] = useState(editingBooking?.notes || "");
+  const [eventType, setEventType] = useState(
+    editingBooking?.eventType || ""
+  );
+
+  const [date, setDate] = useState(
+    editingBooking?.date || prefilledDate
+  );
+
+  const [startTime, setStartTime] = useState(
+    editingBooking?.startTime || ""
+  );
+
+  const [endTime, setEndTime] = useState(
+    editingBooking?.endTime || ""
+  );
+
+  const [location, setLocation] = useState(
+    editingBooking?.location || ""
+  );
+
+  const [status, setStatus] = useState<BookingStatus>(
+    editingBooking?.status || "Tentative"
+  );
+
+  const [notes, setNotes] = useState(
+    editingBooking?.notes || ""
+  );
+
   const [error, setError] = useState("");
-
-  const balance = getBalance(Number(amount), Number(advance));
+  const [saving, setSaving] = useState(false);
 
   const clientBookings = useMemo(() => {
     if (!existingClientId) {
@@ -76,29 +105,65 @@ export default function BookingModal({
     }
 
     return bookings
-      .filter((booking) => booking.clientId === existingClientId && booking.id !== editingBooking?.id)
+      .filter(
+        (booking) =>
+          booking.clientId === existingClientId &&
+          booking.id !== editingBooking?.id
+      )
       .sort((a, b) => a.date.localeCompare(b.date));
-  }, [bookings, existingClientId, editingBooking]);
+  }, [bookings, existingClientId, editingBooking?.id]);
 
   function handleClientChange(clientId: string) {
     setExistingClientId(clientId);
 
-    const client = clients.find((item) => item.id === clientId);
+    const client = clients.find(
+      (item) => item.id === clientId
+    );
 
     if (client) {
       setClientName(client.name);
       setPhone(client.phone);
       setEmail(client.email);
       setClientNotes(client.notes);
+    } else {
+      setClientName("");
+      setPhone("");
+      setEmail("");
+      setClientNotes("");
     }
   }
 
-  async function handleSubmit(event: FormEvent) {
-    event.preventDefault();
+  function handleToggleClientMode() {
+    if (isNewClient) {
+      // Switch to selecting an existing client.
+      setIsNewClient(false);
+      setExistingClientId("");
+      setClientName("");
+      setPhone("");
+      setEmail("");
+      setClientNotes("");
+    } else {
+      // Switch to creating a new client.
+      setIsNewClient(true);
+      setExistingClientId("");
+      setClientName("");
+      setPhone("");
+      setEmail("");
+      setClientNotes("");
+    }
+  }
 
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     setError("");
 
-    if (!clientName.trim() || !eventType || !date || !startTime || !endTime) {
+    if (
+      !clientName.trim() ||
+      !eventType ||
+      !date ||
+      !startTime ||
+      !endTime
+    ) {
       setError("Please fill in all required fields.");
       return;
     }
@@ -108,7 +173,10 @@ export default function BookingModal({
       return;
     }
 
-    const clientId = isNewClient || !existingClientId ? crypto.randomUUID() : existingClientId;
+    const clientId =
+      !isNewClient && existingClientId
+        ? existingClientId
+        : crypto.randomUUID();
 
     const client: Client = {
       id: clientId,
@@ -116,7 +184,14 @@ export default function BookingModal({
       phone: phone.trim(),
       email: email.trim(),
       notes: clientNotes.trim(),
-      createdAt: existingClient?.createdAt || new Date().toISOString(),
+      createdAt:
+        existingClient?.createdAt ||
+        new Date().toISOString(),
+
+      // Preserve package payment details for existing clients.
+      // New clients start with no package payment recorded.
+      packageAmount: existingClient?.packageAmount ?? 0,
+      advancePaid: existingClient?.advancePaid ?? 0,
     };
 
     const booking: Booking = {
@@ -127,18 +202,32 @@ export default function BookingModal({
       startTime,
       endTime,
       location: location.trim(),
-      amount: Number(amount) || 0,
-      advance: Number(advance) || 0,
+
+      // Legacy fields retained for compatibility.
+      // Package payments are recorded on the Client instead.
+      amount: editingBooking?.amount ?? 0,
+      advance: editingBooking?.advance ?? 0,
+
       status,
       notes: notes.trim(),
-      createdAt: editingBooking?.createdAt || new Date().toISOString(),
+      createdAt:
+        editingBooking?.createdAt ||
+        new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     };
 
-    const result = await onSave(booking, client);
+    setSaving(true);
 
-    if (!result.success) {
-      setError(result.message);
+    try {
+      const result = await onSave(booking, client);
+
+      if (!result.success) {
+        setError(result.message);
+      }
+    } catch {
+      setError("Failed to save booking. Please try again.");
+    } finally {
+      setSaving(false);
     }
   }
 
@@ -156,18 +245,33 @@ export default function BookingModal({
             </h2>
           </div>
 
-          <button type="button" onClick={onClose} aria-label="Close booking modal" className="flex h-[36px] w-[36px] shrink-0 cursor-pointer items-center justify-center rounded-full border border-[#D6AF32]/20 text-[#2A1A08] transition-all hover:border-[#D6AF32] hover:bg-[#EFE5D0]">
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close booking modal"
+            className="flex h-[36px] w-[36px] shrink-0 cursor-pointer items-center justify-center rounded-full border border-[#D6AF32]/20 text-[#2A1A08] transition-all hover:border-[#D6AF32] hover:bg-[#EFE5D0]"
+          >
             <X size={17} />
           </button>
         </div>
 
-        <form id="booking-form" onSubmit={handleSubmit} className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-[20px] py-[22px] sm:px-[32px] sm:py-[27px]">
+        <form
+          id="booking-form"
+          onSubmit={handleSubmit}
+          className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-[20px] py-[22px] sm:px-[32px] sm:py-[27px]"
+        >
           <div className="space-y-[25px]">
             <section>
               <SectionTitle>Client</SectionTitle>
 
               {!isNewClient && clients.length > 0 && (
-                <select value={existingClientId} onChange={(e) => handleClientChange(e.target.value)} className="mt-[9px] h-[48px] w-full rounded-[7px] border border-[#D6AF32]/20 bg-white px-[13px] font-body text-[13px] text-[#2A1A08] outline-none focus:border-[#A67417]">
+                <select
+                  value={existingClientId}
+                  onChange={(e) =>
+                    handleClientChange(e.target.value)
+                  }
+                  className="mt-[9px] h-[48px] w-full rounded-[7px] border border-[#D6AF32]/20 bg-white px-[13px] font-body text-[13px] text-[#2A1A08] outline-none focus:border-[#A67417]"
+                >
                   <option value="">Select existing client</option>
 
                   {clients.map((client) => (
@@ -179,27 +283,46 @@ export default function BookingModal({
                 </select>
               )}
 
-              <button type="button" onClick={() => {
-                setIsNewClient(!isNewClient);
-
-                if (!isNewClient) {
-                  setExistingClientId("");
-                  setClientName("");
-                  setPhone("");
-                  setEmail("");
-                  setClientNotes("");
-                }
-              }} className="mt-[10px] flex cursor-pointer items-center gap-[6px] font-body text-[10px] font-semibold tracking-[0.05em] text-[#A67417] transition-colors hover:text-[#2A1A08]">
+              <button
+                type="button"
+                onClick={handleToggleClientMode}
+                className="mt-[10px] flex cursor-pointer items-center gap-[6px] font-body text-[10px] font-semibold tracking-[0.05em] text-[#A67417] transition-colors hover:text-[#2A1A08]"
+              >
                 <UserPlus size={14} />
-                {isNewClient ? "Choose an existing client" : "Create a new client"}
+                {isNewClient
+                  ? "Choose an existing client"
+                  : "Create a new client"}
               </button>
 
               {(isNewClient || !existingClientId) && (
                 <div className="mt-[13px] grid gap-[13px] sm:grid-cols-2">
-                  <Input label="CLIENT NAME *" value={clientName} onChange={setClientName} placeholder="Bride / client name" />
-                  <Input label="PHONE" value={phone} onChange={setPhone} placeholder="+91..." />
-                  <Input label="EMAIL" value={email} onChange={setEmail} placeholder="Email address" />
-                  <Input label="CLIENT NOTES" value={clientNotes} onChange={setClientNotes} placeholder="Optional" />
+                  <Input
+                    label="CLIENT NAME *"
+                    value={clientName}
+                    onChange={setClientName}
+                    placeholder="Bride / client name"
+                  />
+
+                  <Input
+                    label="PHONE"
+                    value={phone}
+                    onChange={setPhone}
+                    placeholder="+91..."
+                  />
+
+                  <Input
+                    label="EMAIL"
+                    value={email}
+                    onChange={setEmail}
+                    placeholder="Email address"
+                  />
+
+                  <Input
+                    label="CLIENT NOTES"
+                    value={clientNotes}
+                    onChange={setClientNotes}
+                    placeholder="Optional"
+                  />
                 </div>
               )}
 
@@ -210,15 +333,24 @@ export default function BookingModal({
                   </p>
 
                   <p className="mt-[2px] font-body text-[10px] text-[#6B5130]">
-                    {existingClient?.phone || "No phone"}{" "}
-                    {existingClient?.email ? ` · ${existingClient.email}` : ""}
+                    {existingClient?.phone || "No phone"}
+                    {existingClient?.email
+                      ? ` · ${existingClient.email}`
+                      : ""}
                   </p>
 
                   {clientBookings.length > 0 && (
                     <p className="mt-[8px] font-body text-[9px] text-[#A67417]">
-                      {clientBookings.length} existing event{clientBookings.length > 1 ? "s" : ""} for this client
+                      {clientBookings.length} existing event
+                      {clientBookings.length > 1 ? "s" : ""} for
+                      this client
                     </p>
                   )}
+
+                  <p className="mt-[6px] font-body text-[9px] text-[#6B5130]">
+                    Package payment can be managed from this
+                    client&apos;s details in the dashboard.
+                  </p>
                 </div>
               )}
             </section>
@@ -227,44 +359,80 @@ export default function BookingModal({
               <SectionTitle>Event details</SectionTitle>
 
               <div className="mt-[10px] grid gap-[13px] sm:grid-cols-2">
-                <Select label="EVENT *" value={eventType} onChange={setEventType} options={["Engagement", "Wedding", "Reception", "Haldi", "Sangeet", "Pellikuthuru", "Cocktail", "Birthday Party", "Bridesmaid", "Guest Makeup", "Groom Makeup", "Other"]} placeholder="Select event" />
+                <Select
+                  label="EVENT *"
+                  value={eventType}
+                  onChange={setEventType}
+                  options={[
+                    "Engagement",
+                    "Wedding",
+                    "Reception",
+                    "Haldi",
+                    "Sangeet",
+                    "Pellikuthuru",
+                    "Cocktail",
+                    "Birthday Party",
+                    "Bridesmaid",
+                    "Guest Makeup",
+                    "Groom Makeup",
+                    "Other",
+                  ]}
+                  placeholder="Select event"
+                />
 
-                <Input label="DATE *" type="date" value={date} onChange={setDate} />
+                <Input
+                  label="DATE *"
+                  type="date"
+                  value={date}
+                  onChange={setDate}
+                />
 
-                <Input label="START TIME *" type="time" value={startTime} onChange={setStartTime} />
+                <Input
+                  label="START TIME *"
+                  type="time"
+                  value={startTime}
+                  onChange={setStartTime}
+                />
 
-                <Input label="END TIME *" type="time" value={endTime} onChange={setEndTime} />
+                <Input
+                  label="END TIME *"
+                  type="time"
+                  value={endTime}
+                  onChange={setEndTime}
+                />
               </div>
 
-              <Input label="LOCATION" value={location} onChange={setLocation} placeholder="Venue / location" className="mt-[13px]" />
-            </section>
-
-            <section>
-              <SectionTitle>Payment</SectionTitle>
-
-              <div className="mt-[10px] grid gap-[13px] sm:grid-cols-3">
-                <Input label="TOTAL AMOUNT" type="number" value={amount} onChange={setAmount} placeholder="₹ 0" />
-
-                <Input label="ADVANCE PAID" type="number" value={advance} onChange={setAdvance} placeholder="₹ 0" />
-
-                <div>
-                  <p className="font-body text-[9px] font-semibold tracking-[0.12em] text-[#2A1A08]">
-                    BALANCE
-                  </p>
-
-                  <div className="mt-[8px] flex h-[48px] items-center rounded-[7px] border border-[#D6AF32]/20 bg-[#EFE5D0]/40 px-[13px] font-body text-[13px] font-semibold text-[#A67417]">
-                    ₹{balance.toLocaleString("en-IN")}
-                  </div>
-                </div>
-              </div>
+              <Input
+                label="LOCATION"
+                value={location}
+                onChange={setLocation}
+                placeholder="Venue / location"
+                className="mt-[13px]"
+              />
             </section>
 
             <section>
               <SectionTitle>Booking status</SectionTitle>
 
               <div className="mt-[10px] grid grid-cols-2 gap-[8px] sm:grid-cols-4">
-                {(["Confirmed", "Tentative", "Completed", "Cancelled"] as BookingStatus[]).map((item) => (
-                  <button key={item} type="button" onClick={() => setStatus(item)} className={`cursor-pointer rounded-[7px] border px-[10px] py-[10px] font-body text-[10px] font-semibold transition-all ${status === item ? "border-[#2A1A08] bg-[#2A1A08] text-[#F8F4EA]" : "border-[#D6AF32]/20 bg-white text-[#6B5130] hover:border-[#D6AF32]"}`}>
+                {(
+                  [
+                    "Confirmed",
+                    "Tentative",
+                    "Completed",
+                    "Cancelled",
+                  ] as BookingStatus[]
+                ).map((item) => (
+                  <button
+                    key={item}
+                    type="button"
+                    onClick={() => setStatus(item)}
+                    className={`cursor-pointer rounded-[7px] border px-[10px] py-[10px] font-body text-[10px] font-semibold transition-all ${
+                      status === item
+                        ? "border-[#2A1A08] bg-[#2A1A08] text-[#F8F4EA]"
+                        : "border-[#D6AF32]/20 bg-white text-[#6B5130] hover:border-[#D6AF32]"
+                    }`}
+                  >
                     {item}
                   </button>
                 ))}
@@ -274,7 +442,13 @@ export default function BookingModal({
             <section>
               <SectionTitle>Event notes</SectionTitle>
 
-              <textarea rows={3} value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Anything important about this event..." className="mt-[10px] w-full resize-none rounded-[7px] border border-[#D6AF32]/20 bg-white px-[13px] py-[11px] font-body text-[12px] leading-[20px] text-[#2A1A08] outline-none placeholder:text-[#6B5130]/45 focus:border-[#A67417]" />
+              <textarea
+                rows={3}
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+                placeholder="Anything important about this event..."
+                className="mt-[10px] w-full resize-none rounded-[7px] border border-[#D6AF32]/20 bg-white px-[13px] py-[11px] font-body text-[12px] leading-[20px] text-[#2A1A08] outline-none placeholder:text-[#6B5130]/45 focus:border-[#A67417]"
+              />
             </section>
 
             {error && (
@@ -287,12 +461,25 @@ export default function BookingModal({
 
         <div className="shrink-0 border-t border-[#D6AF32]/15 bg-[#F8F4EA] px-[20px] py-[13px] sm:px-[32px] sm:py-[15px]">
           <div className="flex flex-col-reverse gap-[9px] sm:flex-row sm:justify-end">
-            <button type="button" onClick={onClose} className="h-[48px] w-full cursor-pointer rounded-[7px] border border-[#D6AF32]/25 bg-white px-[22px] font-body text-[12px] font-semibold text-[#6B5130] transition-all hover:border-[#D6AF32] hover:bg-[#EFE5D0]/40 sm:w-auto sm:min-w-[110px]">
+            <button
+              type="button"
+              onClick={onClose}
+              className="h-[48px] w-full cursor-pointer rounded-[7px] border border-[#D6AF32]/25 bg-white px-[22px] font-body text-[12px] font-semibold text-[#6B5130] transition-all hover:border-[#D6AF32] hover:bg-[#EFE5D0]/40 sm:w-auto sm:min-w-[110px]"
+            >
               Cancel
             </button>
 
-            <button type="submit" form="booking-form" className="h-[48px] w-full cursor-pointer rounded-[7px] bg-[#2A1A08] px-[24px] font-body text-[12px] font-semibold text-[#F8F4EA] transition-colors hover:bg-[#6B5130] sm:w-auto sm:min-w-[155px]">
-              {editingBooking ? "Save Changes" : "Create Booking"}
+            <button
+              type="submit"
+              form="booking-form"
+              disabled={saving}
+              className="h-[48px] w-full cursor-pointer rounded-[7px] bg-[#2A1A08] px-[24px] font-body text-[12px] font-semibold text-[#F8F4EA] transition-colors hover:bg-[#6B5130] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:min-w-[155px]"
+            >
+              {saving
+                ? "Saving..."
+                : editingBooking
+                  ? "Save Changes"
+                  : "Create Booking"}
             </button>
           </div>
         </div>
@@ -301,7 +488,11 @@ export default function BookingModal({
   );
 }
 
-function SectionTitle({ children }: { children: ReactNode }) {
+function SectionTitle({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
     <p className="font-body text-[10px] font-semibold tracking-[0.16em] text-[#A67417]">
       {children}
@@ -330,7 +521,13 @@ function Input({
         {label}
       </label>
 
-      <input type={type} value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} className="mt-[7px] h-[48px] w-full rounded-[7px] border border-[#D6AF32]/20 bg-white px-[13px] font-body text-[12px] text-[#2A1A08] outline-none placeholder:text-[#6B5130]/45 focus:border-[#A67417]" />
+      <input
+        type={type}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder}
+        className="mt-[7px] h-[48px] w-full rounded-[7px] border border-[#D6AF32]/20 bg-white px-[13px] font-body text-[12px] text-[#2A1A08] outline-none placeholder:text-[#6B5130]/45 focus:border-[#A67417]"
+      />
     </div>
   );
 }
@@ -354,7 +551,11 @@ function Select({
         {label}
       </label>
 
-      <select value={value} onChange={(e) => onChange(e.target.value)} className="mt-[7px] h-[48px] w-full rounded-[7px] border border-[#D6AF32]/20 bg-white px-[13px] font-body text-[12px] text-[#2A1A08] outline-none focus:border-[#A67417]">
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="mt-[7px] h-[48px] w-full rounded-[7px] border border-[#D6AF32]/20 bg-white px-[13px] font-body text-[12px] text-[#2A1A08] outline-none focus:border-[#A67417]"
+      >
         <option value="">{placeholder}</option>
 
         {options.map((option) => (

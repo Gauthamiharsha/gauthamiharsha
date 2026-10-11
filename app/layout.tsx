@@ -32,7 +32,7 @@ const greatVibes = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gauthamiharsha.vercel.app"),
+  metadataBase: new URL("https://gauthamiharsha.com"),
   title: {
     default: "Gauthami Harsha | Bridal Makeup Artist in Hyderabad",
     template: "%s | Gauthami Harsha",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://gauthamiharsha.vercel.app",
+    url: "https://gauthamiharsha.com",
     siteName: "Gauthami Harsha",
     title: "Gauthami Harsha | Bridal Makeup Artist in Hyderabad",
     description:

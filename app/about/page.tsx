@@ -203,18 +203,26 @@ export default function AboutPage() {
           </p>
         </div>
 
-<div className="mt-[28px] rounded-[10px] border border-bronze-gold/20 bg-white/70 px-[18px] py-[17px] sm:px-[22px]">
+<div className="mt-[28px] rounded-[10px] border border-bronze-gold/20 bg-white/70 px-[18px] py-[20px] sm:px-[22px]">
   <p className="font-body text-[9px] font-semibold tracking-[0.15em] text-bronze-gold">
     MASTERCLASS CERTIFICATION
   </p>
 
   <p className="mt-[8px] font-heading text-[23px] font-semibold leading-[30px] text-espresso sm:text-[27px] sm:leading-[34px]">
-    Masterclass Certified by:
+    Certified by:
   </p>
 
-  <p className="mt-[3px] font-heading text-[25px] italic leading-[32px] text-bronze-gold sm:text-[29px] sm:leading-[36px]">
-    Isha Khanna
-  </p>
+  <div className="mt-[12px] space-y-[8px]">
+    <p className="font-heading text-[25px] italic leading-[32px] text-bronze-gold sm:text-[29px] sm:leading-[36px]">
+      Isha Khanna
+    </p>
+    <p className="font-heading text-[25px] italic leading-[32px] text-bronze-gold sm:text-[29px] sm:leading-[36px]">
+      Alina Akbar Rangila
+    </p>
+    <p className="font-heading text-[25px] italic leading-[32px] text-bronze-gold sm:text-[29px] sm:leading-[36px]">
+      Vinusha Shetti
+    </p>
+  </div>
 </div>
       </div>
     </Reveal>
